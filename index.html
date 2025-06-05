@@ -1,10 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048游戏</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p>asassas</p>
+    <div class="container">
+        <header>
+            <h1>2048</h1>
+            <div class="score-container">
+                <div class="score-box">
+                    <div class="title">分数</div>
+                    <div id="score">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="title">最高分</div>
+                    <div id="best-score">0</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="game-intro">
+            <p>通过上下左右方向键移动方块，相同数字的方块会合并。</p>
+            <div class="controls">
+                <button id="new-game-button">新游戏</button>
+                <button id="undo-button">撤销</button>
+            </div>
+        </div>
+        
+        <div class="game-container">
+            <!-- 游戏网格 -->
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            
+            <!-- 方块容器 -->
+            <div class="tile-container"></div>
+            
+            <!-- 游戏结束/胜利消息 -->
+            <div class="game-message">
+                <p></p>
+                <div class="lower">
+                    <button id="retry-button">再试一次</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <p>使用<strong>方向键</strong>或<strong>滑动</strong>移动方块，尝试获得2048!</p>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
 </body>
-</html>
+</html> 
