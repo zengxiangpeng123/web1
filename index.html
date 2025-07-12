@@ -3,79 +3,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2048游戏</title>
-    <link rel="stylesheet" href="style.css">
+    <title>亲爱的姐姐，生日快乐！</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0, #f48fb1);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: #5d4037;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            padding: 40px;
+            margin: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        h1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 4.5rem;
+            color: #e91e63;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ff4081;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .birthday-girl {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .avatar i {
+            font-size: 6rem;
+            color: #fff;
+            animation: bounce 3s infinite;
+        }
+        
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #d81b60;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wishes {
+            background: rgba(255, 245, 248, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #f48fb1;
+            animation: fadeIn 2s ease-out;
+            z-index: 3;
+        }
+        
+        .wishes h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .wishes p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.3rem;
+            color: #880e4f;
+            border-left: 3px solid #f8bbd0;
+        }
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .gallery-item {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #ffcdd2, #f8bbd0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: float 6s infinite ease-in-out;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:nth-child(1) { animation-delay: 0s; }
+        .gallery-item:nth-child(2) { animation-delay: 1s; }
+        .gallery-item:nth-child(3) { animation-delay: 2s; }
+        .gallery-item:nth-child(4) { animation-delay: 3s; }
+        .gallery-item:nth-child(5) { animation-delay: 4s; }
+        
+        .gallery-item i {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: #795548;
+            padding-top: 20px;
+            border-top: 1px dashed #f8bbd0;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #e91e63;
+            margin-top: 10px;
+            display: block;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(233, 30, 99, 0.6);
+            font-size: 1.5rem;
+            animation: falling 10s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        @keyframes falling {
+            0% { 
+                transform: translateY(-50px) rotate(0deg); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(calc(100% + 50px)) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff4081, #e91e63);
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
+            animation: floatBalloon 15s linear infinite;
+            z-index: 2;
+            top: 100%;
+        }
+        
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, #ffb74d, #ff9800);
+        }
+        
+        @keyframes floatBalloon {
+            0% { 
+                transform: translateY(0) translateX(0);
+                top: 100%;
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100vh) translateX(calc((var(--x-offset) * 100px)));
+                top: -100px;
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .subtitle { font-size: 1.5rem; }
+            .name { font-size: 2rem; }
+            .container { padding: 25px; }
+            .avatar { width: 150px; height: 150px; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.3rem; }
+            .wishes h2 { font-size: 2rem; }
+            .wishes p { font-size: 1.1rem; }
+            .gallery-item {
+                width: 70px;
+                height: 70px;
+            }
+            .gallery-item i {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>2048</h1>
-            <div class="score-container">
-                <div class="score-box">
-                    <div class="title">分数</div>
-                    <div id="score">0</div>
-                </div>
-                <div class="score-box">
-                    <div class="title">最高分</div>
-                    <div id="best-score">0</div>
-                </div>
-            </div>
-        </header>
+        <!-- 修复：将爱心容器移到容器内部 -->
+        <div class="decoration" id="hearts-container"></div>
         
-        <div class="game-intro">
-            <p>通过上下左右方向键移动方块，相同数字的方块会合并。</p>
-            <div class="controls">
-                <button id="new-game-button">新游戏</button>
-                <button id="undo-button">撤销</button>
+        <!-- 添加漂浮气球 -->
+        <div class="balloon" id="balloon1" style="--x-offset: 0.2; left: 10%; animation-delay: 0s;"></div>
+        <div class="balloon" id="balloon2" style="--x-offset: -0.5; left: 30%; animation-delay: 2s;"></div>
+        <div class="balloon" id="balloon3" style="--x-offset: 0.8; left: 50%; animation-delay: 4s;"></div>
+        <div class="balloon" id="balloon4" style="--x-offset: -0.3; left: 70%; animation-delay: 6s;"></div>
+        <div class="balloon" id="balloon5" style="--x-offset: 0.6; left: 90%; animation-delay: 8s;"></div>
+        
+        <div class="header">
+            <h1>生日快乐</h1>
+            <div class="subtitle">献给我最亲爱的姐姐</div>
+        </div>
+        
+        <div class="birthday-girl">
+            <div class="avatar">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="name">王飘</div>
+        </div>
+        
+        <div class="wishes">
+            <h2>温馨祝福</h2>
+            
+            <p>亲爱的姐姐，今天是你的特别日子，我想借此机会表达我对你深深的祝福和感激。感谢你一直以来的关爱、支持和陪伴，你不仅是我的姐姐，更是我生命中最亲密的朋友。</p>
+            
+            <p>愿你新的一岁里，笑容如阳光般灿烂，生活如蜜糖般甜美。愿你的每一天都充满惊喜与欢乐，每一个梦想都能如期绽放，每一份努力都能收获满满的幸福。</p>
+            
+            <div class="quote">
+                "岁月悠长，姐妹情深；时光荏苒，祝福永恒。"
+            </div>
+            
+            <p>愿你在新的一岁中：事业蒸蒸日上，爱情甜甜蜜蜜，健康常伴左右，快乐永驻心间。希望我们姐妹情深永远不变，共同走过更多美好时光！</p>
+            
+            <p>在这个特别的日子里，请收下我最真挚的祝福：生日快乐，永远幸福！</p>
+        </div>
+        
+        <div class="gallery">
+            <div class="gallery-item" id="gift">
+                <i class="fas fa-gift"></i>
+            </div>
+            <div class="gallery-item" id="cake">
+                <i class="fas fa-cake"></i>
+            </div>
+            <div class="gallery-item" id="heart">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="gallery-item" id="star">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="gallery-item" id="music">
+                <i class="fas fa-music"></i>
             </div>
         </div>
         
-        <div class="game-container">
-            <!-- 游戏网格 -->
-            <div class="grid-container">
-                <div class="grid-row">
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                </div>
-                <div class="grid-row">
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                </div>
-                <div class="grid-row">
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                </div>
-                <div class="grid-row">
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                    <div class="grid-cell"></div>
-                </div>
-            </div>
-            
-            <!-- 方块容器 -->
-            <div class="tile-container"></div>
-            
-            <!-- 游戏结束/胜利消息 -->
-            <div class="game-message">
-                <p></p>
-                <div class="lower">
-                    <button id="retry-button">再试一次</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="instructions">
-            <p>使用<strong>方向键</strong>或<strong>滑动</strong>移动方块，尝试获得2048!</p>
+        <div class="footer">
+            <p>谨以此表达我对姐姐最深的爱意与祝福</p>
+            <span class="signature">爱你的弟弟 祥鹏</span>
+            <p style="margin-top: 20px;">2023年10月15日</p>
         </div>
     </div>
-    
-    <script src="game.js"></script>
+
+    <script>
+        // 创建飘落爱心
+        const heartsContainer = document.getElementById('hearts-container');
+        const heartCount = 30;
+        
+        for (let i = 0; i < heartCount; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤';
+            
+            // 修复：使用容器内的相对位置
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            heart.style.animationDelay = `${Math.random() * 5}s`;
+            heart.style.fontSize = `${Math.random() * 15 + 15}px`;
+            heart.style.opacity = `${Math.random() * 0.5 + 0.3}`;
+            
+            heartsContainer.appendChild(heart);
+        }
+        
+        // 添加蛋糕动画
+        window.addEventListener('load', () => {
+            const cake = document.querySelector('.fa-cake');
+            cake.style.transition = 'all 0.5s';
+            
+            setInterval(() => {
+                cake.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    cake.style.transform = 'scale(1)';
+                }, 500);
+            }, 3000);
+        });
+        
+        // 添加礼物互动效果
+        const gift = document.getElementById('gift');
+        gift.addEventListener('click', () => {
+            gift.style.color = '#e91e63';
+            gift.style.transform = 'rotate(15deg)';
+            setTimeout(() => {
+                gift.style.color = '#fff';
+                gift.style.transform = 'rotate(0)';
+            }, 1000);
+            
+            // 创建五彩纸屑效果
+            createConfetti();
+        });
+        
+        // 添加心形互动效果
+        const heartIcon = document.getElementById('heart');
+        heartIcon.addEventListener('click', () => {
+            heartIcon.style.color = '#e91e63';
+            heartIcon.style.transform = 'scale(1.5)';
+            
+            // 创建跳动的心形
+            createFloatingHearts();
+            
+            setTimeout(() => {
+                heartIcon.style.color = '#fff';
+                heartIcon.style.transform = 'scale(1)';
+            }, 1000);
+        });
+        
+        // 创建五彩纸屑效果函数
+        function createConfetti() {
+            const colors = ['#e91e63', '#ff4081', '#f50057', '#c2185b', '#ff80ab'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('heart');
+                confetti.innerHTML = '❀';
+                confetti.style.position = 'fixed';
+                confetti.style.top = '50%';
+                confetti.style.left = '50%';
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.fontSize = '20px';
+                confetti.style.zIndex = '1000';
+                confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear forwards`;
+                document.body.appendChild(confetti);
+                
+                // 动画结束后移除
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // 创建漂浮心形函数
+        function createFloatingHearts() {
+            const container = document.querySelector('.container');
+            const colors = ['#e91e63', '#ff4081', '#f50057', '#c2185b', '#ff80ab'];
+            
+            for (let i = 0; i < 10; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.position = 'absolute';
+                heart.style.top = '80%';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.fontSize = '30px';
+                heart.style.zIndex = '1000';
+                heart.style.animation = `floatingHeart ${Math.random() * 3 + 2}s ease-out forwards`;
+                container.appendChild(heart);
+                
+                // 动画结束后移除
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }
+        }
+        
+        // 添加漂浮心形动画
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes confettiFall {
+                0% { 
+                    transform: translate(-50%, -50%) rotate(0deg) scale(1); 
+                    opacity: 1;
+                }
+                100% { 
+                    transform: translate(calc(-50% + ${Math.random() * 200 - 100}px), calc(-50% + 300px)) rotate(${Math.random() * 360}deg) scale(0.5); 
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes floatingHeart {
+                0% { 
+                    transform: translateY(0) scale(1); 
+                    opacity: 1;
+                }
+                100% { 
+                    transform: translateY(-100px) scale(0.5); 
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // 添加气球动画
+        const balloons = document.querySelectorAll('.balloon');
+        balloons.forEach(balloon => {
+            balloon.style.animationDuration = `${Math.random() * 10 + 15}s`;
+        });
+    </script>
 </body>
-</html> 
+</html>
