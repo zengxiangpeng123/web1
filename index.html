@@ -15,7 +15,7 @@
         
         body {
             font-family: 'Noto Serif SC', serif;
-            /* background: url('背景图.png') no-repeat center center fixed; */
+            background: url('背景的图片.png') no-repeat center center fixed; 
             background-size: cover;
             min-height: 100vh;
             display: flex;
@@ -29,7 +29,7 @@
         .container {
             max-width: 800px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.65);
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             overflow: hidden;
@@ -223,7 +223,7 @@
         
         @keyframes bounce {
             0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-15px); }
+            50% { transform: translateX(-50%) translateY(-5px); }
         }
         
         @keyframes fadeIn {
@@ -497,7 +497,7 @@
         <div class="footer">
             <p>谨以此表达我对姐姐最深的爱意与祝福</p>
             <span class="signature">爱你的弟弟 祥鹏</span>
-            <p style="margin-top: 15px;">2023年10月15日</p>
+            <p style="margin-top: 15px;">2025年7月12日</p>
         </div>
     </div>
 
@@ -514,6 +514,20 @@
     </audio>
 
     <script>
+        // 页面加载时尝试播放音乐
+        window.addEventListener('load', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            const musicControl = document.getElementById('musicControl');
+            
+            // 尝试自动播放
+            bgMusic.play().then(() => {
+                musicControl.classList.add('playing');
+            }).catch(e => {
+                console.log('自动播放受限，需要用户交互:', e);
+                // 由于浏览器策略限制，可能需要用户交互才能播放
+            });
+        });
+        
         // 创建飘落爱心
         const heartsContainer = document.getElementById('hearts-container');
         const heartCount = 30;
@@ -599,13 +613,20 @@
             lastTouch = now;
         });
         
-        // 确保背景音乐播放
-        document.addEventListener('click', function() {
-            document.getElementById('bgMusic').play().catch(e => {
-                console.log('需要用户交互才能播放音频:', e);
+        // 确保背景音乐播放（用户首次交互时）
+        document.addEventListener('click', function playOnFirstInteraction() {
+            const bgMusic = document.getElementById('bgMusic');
+            const musicControl = document.getElementById('musicControl');
+            
+            bgMusic.play().then(() => {
+                musicControl.classList.add('playing');
+            }).catch(e => {
+                console.log('播放失败:', e);
             });
-            document.getElementById('musicControl').classList.add('playing');
-        }, { once: true });
+            
+            // 移除事件监听器，确保只执行一次
+            document.removeEventListener('click', playOnFirstInteraction);
+        });
         
         // 音乐控制功能
         const musicControl = document.getElementById('musicControl');
