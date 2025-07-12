@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>亲爱的姐姐，生日快乐！</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
@@ -11,51 +11,51 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
         
         body {
             font-family: 'Noto Serif SC', serif;
-            background: linear-gradient(135deg, #fce4ec, #f8bbd0, #f48fb1);
+            /* background: url('背景图.png') no-repeat center center fixed; */
+            background-size: cover;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
             color: #5d4037;
-            padding: 15px;
+            padding: 20px;
         }
         
         .container {
-            max-width: 100%;
+            max-width: 800px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             position: relative;
-            padding: 25px 20px;
-            margin: 10px;
+            padding: 30px;
+            margin: 20px;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 3;
         }
         
         h1 {
             font-family: 'Ma Shan Zheng', cursive;
-            font-size: 3.2rem;
+            font-size: 3.8rem;
             color: #e91e63;
             margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
             animation: pulse 2s infinite;
         }
         
         .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.7rem;
             color: #ff4081;
             margin-bottom: 20px;
             font-weight: 700;
@@ -65,22 +65,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 3;
         }
         
+        .avatar-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             background: linear-gradient(45deg, #ff9a9e, #fad0c4);
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 15px;
-            border: 4px solid #fff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             position: relative;
         }
@@ -89,49 +93,52 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 50%;
         }
         
-        .avatar i {
-            font-size: 3.5rem;
-            color: #fff;
-            animation: bounce 3s infinite;
+        /* 优化皇冠位置 - 使其像生日帽子 */
+        .crown {
             position: absolute;
-            top: -20px;
+            top: -35px;
             left: 50%;
             transform: translateX(-50%);
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            z-index: 2;
+            font-size: 3.5rem;
+            color: #ffd700;
+            animation: bounce 3s infinite;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            z-index: 4;
         }
         
         .name {
-            font-size: 2rem;
+            font-size: 2.3rem;
             font-weight: 700;
             color: #d81b60;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
         }
         
         .wishes {
             background: rgba(255, 245, 248, 0.9);
             border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 25px;
+            margin: 25px 0;
             position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #f48fb1;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #f48fb1;
             animation: fadeIn 2s ease-out;
             z-index: 3;
         }
         
         .wishes h2 {
             font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
+            font-size: 2.3rem;
             color: #e91e63;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: center;
         }
         
         .wishes p {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             line-height: 1.7;
             margin-bottom: 15px;
             text-align: justify;
@@ -140,28 +147,28 @@
         .quote {
             font-style: italic;
             text-align: center;
-            padding: 12px;
+            padding: 15px;
             background: rgba(255, 255, 255, 0.7);
             border-radius: 10px;
-            margin: 15px 0;
-            font-size: 1.1rem;
+            margin: 20px 0;
+            font-size: 1.25rem;
             color: #880e4f;
             border-left: 3px solid #f8bbd0;
         }
         
         .gallery {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
-            margin: 25px 0;
+            gap: 15px;
+            margin: 30px 0;
             position: relative;
             z-index: 3;
         }
         
         .gallery-item {
-            width: 65px;
-            height: 65px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: linear-gradient(45deg, #ffcdd2, #f8bbd0);
             display: flex;
@@ -170,7 +177,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             animation: float 6s infinite ease-in-out;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .gallery-item:hover {
@@ -184,16 +191,16 @@
         .gallery-item:nth-child(5) { animation-delay: 4s; }
         
         .gallery-item i {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #fff;
         }
         
         .footer {
             text-align: center;
-            margin-top: 25px;
-            font-size: 1rem;
+            margin-top: 30px;
+            font-size: 1.1rem;
             color: #795548;
-            padding-top: 15px;
+            padding-top: 20px;
             border-top: 1px dashed #f8bbd0;
             position: relative;
             z-index: 3;
@@ -201,9 +208,9 @@
         
         .signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #e91e63;
-            margin-top: 8px;
+            margin-top: 10px;
             display: block;
         }
         
@@ -215,8 +222,8 @@
         }
         
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-15px); }
         }
         
         @keyframes fadeIn {
@@ -226,7 +233,7 @@
         
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
         
@@ -252,22 +259,22 @@
         
         @keyframes falling {
             0% { 
-                transform: translateY(0px) rotate(0deg); 
+                transform: translateY(-20px) rotate(0deg); 
                 opacity: 1; 
             }
             100% { 
-                transform: translateY(calc(100% + 50px)) rotate(360deg); 
+                transform: translateY(100vh) rotate(360deg); 
                 opacity: 0; 
             }
         }
         
         .balloon {
             position: absolute;
-            width: 30px;
-            height: 40px;
+            width: 40px;
+            height: 50px;
             border-radius: 50%;
             background: linear-gradient(45deg, #ff4081, #e91e63);
-            box-shadow: inset -3px -3px 8px rgba(0,0,0,0.1);
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
             animation: floatBalloon 15s linear infinite;
             z-index: 2;
             top: 100%;
@@ -276,11 +283,11 @@
         .balloon::after {
             content: "";
             position: absolute;
-            bottom: -12px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 2px;
-            height: 20px;
+            height: 30px;
             background: linear-gradient(to bottom, #ffb74d, #ff9800);
         }
         
@@ -294,192 +301,14 @@
                 opacity: 1;
             }
             100% { 
-                transform: translateY(-100vh) translateX(calc((var(--x-offset) * 50px)));
+                transform: translateY(-100vh) translateX(calc((var(--x-offset) * 100px)));
                 top: -100px;
                 opacity: 1;
             }
         }
         
-        /* 移动端触摸优化 */
-        .gallery-item {
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        .gallery-item:active {
-            transform: scale(0.95);
-        }
-        
-        /* 添加新的动画样式 */
-        @keyframes confettiFall {
-            0% { 
-                transform: translate(-50%, -50%) rotate(0deg) scale(1); 
-                opacity: 1;
-            }
-            100% { 
-                transform: translate(calc(-50% + 75px), calc(-50% + 200px)) rotate(360deg) scale(0.5); 
-                opacity: 0;
-            }
-        }
-        
-        @keyframes floatingHeart {
-            0% { 
-                transform: translateY(0) scale(1); 
-                opacity: 1;
-            }
-            100% { 
-                transform: translateY(-80px) scale(0.5); 
-                opacity: 0;
-            }
-        }
-        
-        /* 优化后的媒体查询 */
-        @media (min-width: 481px) {
-            .container {
-                padding: 30px 25px;
-                max-width: 90%;
-            }
-            
-            h1 {
-                font-size: 3.8rem;
-            }
-            
-            .subtitle {
-                font-size: 1.6rem;
-            }
-            
-            .avatar {
-                width: 140px;
-                height: 140px;
-            }
-            
-            .avatar i {
-                font-size: 4.5rem;
-            }
-            
-            .gallery-item {
-                width: 75px;
-                height: 75px;
-            }
-            
-            .gallery-item i {
-                font-size: 2.2rem;
-            }
-        }
-        
-        /* 针对较大手机屏幕的优化 */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 85%;
-                padding: 35px 30px;
-            }
-            
-            h1 {
-                font-size: 4rem;
-            }
-            
-            .subtitle {
-                font-size: 1.7rem;
-            }
-            
-            .wishes h2 {
-                font-size: 2.2rem;
-            }
-            
-            .wishes p {
-                font-size: 1.1rem;
-            }
-            
-            .avatar {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .avatar i {
-                font-size: 5rem;
-            }
-        }
-        
-        /* 添加手势支持 */
-        .touch-hint {
-            font-size: 0.8rem;
-            text-align: center;
-            color: #ad1457;
-            margin-top: 10px;
-            animation: fadeIn 1s ease-in-out 2s forwards;
-            opacity: 0;
-        }
-        
-        /* 添加心形雨效果 */
-        .heart-rain {
-            position: fixed;
-            top: -50px;
-            font-size: 20px;
-            color: #e91e63;
-            opacity: 0.8;
-            z-index: 999;
-            pointer-events: none;
-            animation: heartRain 4s linear;
-        }
-        
-        @keyframes heartRain {
-            0% {
-                opacity: 0.8;
-                transform: translateY(0) rotate(0deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-        
-        /* 添加滑动引导 */
-        .scroll-guide {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 50px;
-            border: 2px solid rgba(233, 30, 99, 0.5);
-            border-radius: 15px;
-            display: flex;
-            justify-content: center;
-            padding-top: 10px;
-            z-index: 100;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-        
-        .scroll-guide::before {
-            content: "";
-            width: 6px;
-            height: 12px;
-            background: rgba(233, 30, 99, 0.7);
-            border-radius: 3px;
-            animation: scrollGuide 2s infinite;
-        }
-        
-        @keyframes scrollGuide {
-            0% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            75% {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-        }
-        
-        /* 隐藏滚动引导 */
-        .scroll-guide.hidden {
-            display: none;
-        }
-        
-        /* 添加音频控制样式 */
-        .audio-control {
+        /* 音乐控制按钮样式 */
+        .music-control {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -491,30 +320,114 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        .audio-control i {
-            font-size: 1.2rem;
-            color: #e91e63;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
             transition: all 0.3s ease;
         }
         
-        .audio-control:hover,
-        .audio-control:active {
+        .music-control:hover {
             transform: scale(1.1);
             background: rgba(255, 255, 255, 0.9);
         }
         
-        .audio-control.playing i.fa-play {
+        .music-control i {
+            font-size: 1.2rem;
+            color: #e91e63;
+        }
+        
+        .music-control.playing .fa-play {
             display: none;
         }
         
-        .audio-control:not(.playing) i.fa-pause {
+        .music-control:not(.playing) .fa-pause {
             display: none;
+        }
+        
+        /* 媒体查询 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .avatar {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .crown {
+                font-size: 3rem;
+                top: -30px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .wishes h2 {
+                font-size: 2rem;
+            }
+            
+            .wishes p {
+                font-size: 1.05rem;
+            }
+            
+            .gallery-item {
+                width: 70px;
+                height: 70px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .avatar {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .crown {
+                font-size: 2.5rem;
+                top: -25px;
+            }
+            
+            .name {
+                font-size: 1.8rem;
+            }
+            
+            .wishes h2 {
+                font-size: 1.8rem;
+            }
+            
+            .wishes p {
+                font-size: 1rem;
+            }
+            
+            .gallery-item {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .gallery-item i {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -536,9 +449,13 @@
         </div>
         
         <div class="birthday-girl">
-            <div class="avatar">
-                <img src="images/姐姐的头像.jpg" alt="姐姐的头像">
-                <i class="fas fa-crown"></i>
+            <div class="avatar-container">
+                <div class="avatar">
+                    <!-- 使用姐姐的头像 -->
+                    <img src="姐姐的头像.jpg" alt="姐姐的头像">
+                </div>
+                <!-- 优化后的皇冠位置 -->
+                <i class="fas fa-crown crown"></i>
             </div>
             <div class="name">王飘</div>
         </div>
@@ -560,23 +477,22 @@
         </div>
         
         <div class="gallery">
-            <div class="gallery-item" id="gift">
+            <div class="gallery-item">
                 <i class="fas fa-gift"></i>
             </div>
-            <div class="gallery-item" id="cake">
+            <div class="gallery-item">
                 <i class="fas fa-birthday-cake"></i>
             </div>
-            <div class="gallery-item" id="heart">
+            <div class="gallery-item">
                 <i class="fas fa-heart"></i>
             </div>
-            <div class="gallery-item" id="star">
+            <div class="gallery-item">
                 <i class="fas fa-star"></i>
             </div>
-            <div class="gallery-item" id="music">
+            <div class="gallery-item">
                 <i class="fas fa-music"></i>
             </div>
         </div>
-        <div class="touch-hint">点击图标有惊喜哦~</div>
         
         <div class="footer">
             <p>谨以此表达我对姐姐最深的爱意与祝福</p>
@@ -585,43 +501,36 @@
         </div>
     </div>
 
-    <!-- 添加滚动引导 -->
-    <div class="scroll-guide" id="scrollGuide"></div>
-
-    <!-- 添加音频控制 -->
-    <div class="audio-control" id="audioControl">
+    <!-- 添加音乐控制按钮 -->
+    <div class="music-control" id="musicControl">
         <i class="fas fa-play"></i>
         <i class="fas fa-pause"></i>
     </div>
 
-    <audio id="bgMusic" loop>
-        <source src="musics/Happy_birthday.MP3" type="audio/mpeg">
+    <!-- 添加背景音乐 -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="Happy_birthday.MP3" type="audio/mpeg">
         你的浏览器不支持音频元素。
     </audio>
 
     <script>
         // 创建飘落爱心
         const heartsContainer = document.getElementById('hearts-container');
-        // 根据屏幕大小调整爱心数量
-        const heartCount = window.innerWidth < 480 ? 20 : 30;
+        const heartCount = 30;
         
         for (let i = 0; i < heartCount; i++) {
             const heart = document.createElement('div');
             heart.classList.add('heart');
             heart.innerHTML = '❤';
-            
             heart.style.left = `${Math.random() * 100}%`;
             heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
             heart.style.animationDelay = `${Math.random() * 5}s`;
             heart.style.fontSize = `${Math.random() * 10 + 10}px`;
-            heart.style.opacity = `${Math.random() * 0.5 + 0.3}`;
-            
             heartsContainer.appendChild(heart);
         }
         
         // 添加蛋糕动画
         window.addEventListener('load', () => {
-            // 修复蛋糕图标类名
             const cake = document.querySelector('.fa-birthday-cake');
             cake.style.transition = 'all 0.5s';
             
@@ -633,406 +542,84 @@
             }, 3000);
         });
         
-        // 优化触摸交互
-        const addTouchEffect = (element) => {
-            element.addEventListener('touchstart', () => {
-                element.style.transform = 'scale(0.9)';
-            }, {passive: true});
-            
-            element.addEventListener('touchend', () => {
-                element.style.transform = 'scale(1)';
-            }, {passive: true});
-        };
-        
-        // 为所有画廊项添加触摸效果
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            addTouchEffect(item);
-        });
-        
-        // 添加礼物互动效果
-        const gift = document.getElementById('gift');
-        const interactWithGift = () => {
-            gift.style.color = '#e91e63';
-            gift.style.transform = 'rotate(15deg)';
-            setTimeout(() => {
-                gift.style.color = '#fff';
-                gift.style.transform = 'rotate(0)';
-            }, 1000);
-            
-            // 创建五彩纸屑效果
-            createConfetti();
-        };
-        
-        gift.addEventListener('click', interactWithGift);
-        gift.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            interactWithGift();
-        }, {passive: false});
-        
-        // 添加心形互动效果
-        const heartIcon = document.getElementById('heart');
-        const interactWithHeart = () => {
-            heartIcon.style.color = '#e91e63';
-            heartIcon.style.transform = 'scale(1.5)';
-            
-            // 创建跳动的心形
-            createFloatingHearts();
-            
-            setTimeout(() => {
-                heartIcon.style.color = '#fff';
-                heartIcon.style.transform = 'scale(1)';
-            }, 1000);
-        };
-        
-        heartIcon.addEventListener('click', interactWithHeart);
-        heartIcon.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            interactWithHeart();
-        }, {passive: false});
-        
-        // 添加星星互动效果
-        const starIcon = document.getElementById('star');
-        const interactWithStar = () => {
-            starIcon.style.color = '#ffc107';
-            starIcon.style.transform = 'rotate(72deg)';
-            
-            // 创建闪烁的星星
-            createSparkles();
-            
-            setTimeout(() => {
-                starIcon.style.color = '#fff';
-                starIcon.style.transform = 'rotate(0)';
-            }, 1000);
-        };
-        
-        starIcon.addEventListener('click', interactWithStar);
-        starIcon.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            interactWithStar();
-        }, {passive: false});
-        
-        // 添加音乐互动效果
-        const musicIcon = document.getElementById('music');
-        const interactWithMusic = () => {
-            musicIcon.style.color = '#7b1fa2';
-            
-            // 创建音符效果
-            createMusicNotes();
-            
-            let angle = 0;
-            const interval = setInterval(() => {
-                angle += 5;
-                musicIcon.style.transform = `rotate(${angle}deg)`;
-                
-                if (angle >= 360) {
-                    clearInterval(interval);
-                    musicIcon.style.color = '#fff';
-                    musicIcon.style.transform = 'rotate(0)';
-                }
-            }, 20);
-        };
-        
-        musicIcon.addEventListener('click', interactWithMusic);
-        musicIcon.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            interactWithMusic();
-        }, {passive: false});
-        
-        // 创建五彩纸屑效果函数
-        function createConfetti() {
-            const colors = ['#e91e63', '#ff4081', '#f50057', '#c2185b', '#ff80ab'];
-            const container = document.querySelector('.container');
-            const confettiCount = window.innerWidth < 480 ? 30 : 50;
-            
-            for (let i = 0; i < confettiCount; i++) {
-                const confetti = document.createElement('div');
-                confetti.classList.add('heart');
-                confetti.innerHTML = ['❀', '✦', '✩', '★', '✿'][Math.floor(Math.random() * 5)];
-                confetti.style.position = 'absolute';
-                confetti.style.top = '50%';
-                confetti.style.left = '50%';
-                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.fontSize = `${Math.random() * 10 + 10}px`;
-                confetti.style.zIndex = '1000';
-                confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear forwards`;
-                container.appendChild(confetti);
-                
-                // 动画结束后移除
-                setTimeout(() => {
-                    confetti.remove();
-                }, 5000);
-            }
-        }
-        
-        // 创建漂浮心形函数
-        function createFloatingHearts() {
-            const container = document.querySelector('.container');
-            const colors = ['#e91e63', '#ff4081', '#f50057', '#c2185b', '#ff80ab'];
-            const heartCount = window.innerWidth < 480 ? 6 : 10;
-            
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤';
-                heart.style.position = 'absolute';
-                heart.style.top = '80%';
-                heart.style.left = `${Math.random() * 100}%`;
-                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                heart.style.fontSize = '20px';
-                heart.style.zIndex = '1000';
-                heart.style.animation = `floatingHeart ${Math.random() * 3 + 2}s ease-out forwards`;
-                container.appendChild(heart);
-                
-                // 动画结束后移除
-                setTimeout(() => {
-                    heart.remove();
-                }, 3000);
-            }
-        }
-        
-        // 创建闪烁的星星
-        function createSparkles() {
-            const container = document.querySelector('.container');
-            const colors = ['#ffc107', '#ffeb3b', '#ffd54f', '#ffca28', '#ffc400'];
-            const sparkleCount = window.innerWidth < 480 ? 6 : 10;
-            
-            for (let i = 0; i < sparkleCount; i++) {
-                const sparkle = document.createElement('div');
-                sparkle.classList.add('heart');
-                sparkle.innerHTML = ['✦', '✧', '✩', '★', '✰'][Math.floor(Math.random() * 5)];
-                sparkle.style.position = 'absolute';
-                sparkle.style.top = '50%';
-                sparkle.style.left = '50%';
-                sparkle.style.color = colors[Math.floor(Math.random() * colors.length)];
-                sparkle.style.fontSize = `${Math.random() * 10 + 10}px`;
-                sparkle.style.zIndex = '1000';
-                sparkle.style.animation = `sparkle ${Math.random() * 2 + 1}s linear forwards`;
-                container.appendChild(sparkle);
-                
-                // 动画结束后移除
-                setTimeout(() => {
-                    sparkle.remove();
-                }, 3000);
-            }
-        }
-        
-        // 创建音符效果
-        function createMusicNotes() {
-            const container = document.querySelector('.container');
-            const colors = ['#7b1fa2', '#9c27b0', '#ba68c8', '#ce93d8', '#ab47bc'];
-            const noteCount = window.innerWidth < 480 ? 6 : 10;
-            
-            for (let i = 0; i < noteCount; i++) {
-                const note = document.createElement('div');
-                note.classList.add('heart');
-                note.innerHTML = ['♩', '♪', '♫', '♬', '🎵'][Math.floor(Math.random() * 5)];
-                note.style.position = 'absolute';
-                note.style.top = '80%';
-                note.style.left = `${Math.random() * 100}%`;
-                note.style.color = colors[Math.floor(Math.random() * colors.length)];
-                note.style.fontSize = `${Math.random() * 10 + 10}px`;
-                note.style.zIndex = '1000';
-                note.style.animation = `musicNote ${Math.random() * 3 + 2}s ease-out forwards`;
-                container.appendChild(note);
-                
-                // 动画结束后移除
-                setTimeout(() => {
-                    note.remove();
-                }, 3000);
-            }
-        }
-        
-        // 添加所有动画样式
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes confettiFall {
-                0% { 
-                    transform: translate(-50%, -50%) rotate(0deg) scale(1); 
-                    opacity: 1;
-                }
-                100% { 
-                    transform: translate(calc(-50% + 75px), calc(-50% + 200px)) rotate(360deg) scale(0.5); 
-                    opacity: 0;
-                }
-            }
-            
-            @keyframes floatingHeart {
-                0% { 
-                    transform: translateY(0) scale(1); 
-                    opacity: 1;
-                }
-                100% { 
-                    transform: translateY(-80px) scale(0.5); 
-                    opacity: 0;
-                }
-            }
-            
-            @keyframes sparkle {
-                0% {
-                    transform: translate(-50%, -50%) scale(0);
-                    opacity: 1;
-                }
-                50% {
-                    transform: translate(calc(-50% + 50px), calc(-50% + 50px)) scale(1.5);
-                    opacity: 0.8;
-                }
-                100% {
-                    transform: translate(calc(-50% + 100px), calc(-50% + 100px)) scale(0);
-                    opacity: 0;
-                }
-            }
-            
-            @keyframes musicNote {
-                0% {
-                    transform: translateY(0) translateX(0) scale(1);
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(-100px) translateX(25px) scale(0.5);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-        
         // 添加气球动画
         const balloons = document.querySelectorAll('.balloon');
         balloons.forEach(balloon => {
             balloon.style.animationDuration = `${Math.random() * 10 + 15}s`;
         });
         
-        // 屏幕方向变化时刷新页面大小
-        window.addEventListener('orientationchange', () => {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 300);
-        });
-        
-        // 禁用双击缩放
-        document.addEventListener('touchstart', (e) => {
-            if (e.touches.length > 1) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-        
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', (e) => {
-            const now = Date.now();
-            if (now - lastTouchEnd < 300) {
-                e.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, { passive: false });
-
-        // 添加音乐控制功能
-        const audioControl = document.getElementById('audioControl');
-        const bgMusic = document.getElementById('bgMusic');
-        
-        // 设置音量
-        bgMusic.volume = 0.5;
-        
-        audioControl.addEventListener('click', () => {
-            if (bgMusic.paused) {
-                bgMusic.play().catch(e => {
-                    console.log('自动播放受限:', e);
-                });
-                audioControl.classList.add('playing');
-            } else {
-                bgMusic.pause();
-                audioControl.classList.remove('playing');
-            }
-        });
-        
-        // 用户首次交互时尝试播放
-        document.addEventListener('click', function initAudio() {
-            bgMusic.play().catch(e => {
-                console.log('需要用户交互才能播放音频:', e);
+        // 添加图标交互效果
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2) rotate(10deg)';
+                this.style.backgroundColor = '#e91e63';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1) rotate(0)';
+                    this.style.backgroundColor = '';
+                }, 500);
             });
-            audioControl.classList.add('playing');
-            document.removeEventListener('click', initAudio);
-        }, { once: true });
-        
-        // 当页面不可见时暂停音乐
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                bgMusic.pause();
-                audioControl.classList.remove('playing');
-            } else if (audioControl.classList.contains('playing')) {
-                bgMusic.play().catch(() => {});
-            }
         });
         
         // 添加心形雨特效
         function createHeartRain() {
-            const heartCount = 50;
-            const body = document.body;
+            const heartCount = 15;
+            const container = document.querySelector('.container');
             
             for (let i = 0; i < heartCount; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
-                    heart.classList.add('heart-rain');
+                    heart.classList.add('heart');
                     heart.innerHTML = '❤';
+                    heart.style.position = 'absolute';
+                    heart.style.top = '-30px';
                     heart.style.left = `${Math.random() * 100}%`;
                     heart.style.fontSize = `${Math.random() * 15 + 15}px`;
-                    heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                    heart.style.color = `hsl(${Math.random() * 360}, 100%, 60%)`;
+                    heart.style.animation = `falling ${Math.random() * 3 + 2}s linear forwards`;
+                    container.appendChild(heart);
                     
-                    // 随机颜色
-                    const colors = ['#e91e63', '#ff4081', '#f50057', '#c2185b', '#ff80ab'];
-                    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                    
-                    body.appendChild(heart);
-                    
-                    // 动画结束后删除
+                    // 动画结束后移除
                     setTimeout(() => {
                         heart.remove();
                     }, 5000);
-                }, i * 100);
+                }, i * 200);
             }
         }
         
-        // 点击心形图标时触发心形雨
-        document.getElementById('heart').addEventListener('dblclick', () => {
-            createHeartRain();
-        });
-        document.getElementById('heart').addEventListener('touchstart', (e) => {
-            // 检测是否是双击
-            if (e.detail === 2) {
+        // 双击页面触发心形雨
+        document.addEventListener('dblclick', createHeartRain);
+        
+        // 触摸设备支持
+        let lastTouch = 0;
+        document.addEventListener('touchstart', function() {
+            const now = new Date().getTime();
+            if (now - lastTouch < 300) {
                 createHeartRain();
             }
+            lastTouch = now;
         });
         
-        // 平滑滚动效果
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // 确保背景音乐播放
+        document.addEventListener('click', function() {
+            document.getElementById('bgMusic').play().catch(e => {
+                console.log('需要用户交互才能播放音频:', e);
             });
-        });
+            document.getElementById('musicControl').classList.add('playing');
+        }, { once: true });
         
-        // 滚动引导功能
-        const scrollGuide = document.getElementById('scrollGuide');
+        // 音乐控制功能
+        const musicControl = document.getElementById('musicControl');
+        const bgMusic = document.getElementById('bgMusic');
         
-        // 当用户滚动页面时隐藏引导
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                scrollGuide.classList.add('hidden');
-            }
-        }, { passive: true });
-        
-        // 检测页面高度，如果页面不需要滚动则隐藏引导
-        function checkScrollNeeded() {
-            if (document.body.scrollHeight <= window.innerHeight) {
-                scrollGuide.classList.add('hidden');
+        musicControl.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicControl.classList.add('playing');
             } else {
-                scrollGuide.classList.remove('hidden');
+                bgMusic.pause();
+                musicControl.classList.remove('playing');
             }
-        }
-        
-        // 页面加载和调整大小时检查是否需要滚动
-        window.addEventListener('load', checkScrollNeeded);
-        window.addEventListener('resize', checkScrollNeeded);
+        });
     </script>
 </body>
-</html> 
+</html>
